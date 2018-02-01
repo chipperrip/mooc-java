@@ -4,9 +4,11 @@ public class Main {
     public static void main(String[] args) {
         // write testcode here
 
-        // indexes:   0  1  2  3  4
-        int[] values = {6, 5, 8, 7, 11};
-        System.out.println("Index of the smallest: " + indexOfTheSmallest(values));
+        // indexes:    0  1  2  3   4
+        int[] values = {-1, 6, 9, 8, 12};
+        System.out.println(indexOfTheSmallestStartingFrom(values, 1));
+        System.out.println(indexOfTheSmallestStartingFrom(values, 2));
+        System.out.println(indexOfTheSmallestStartingFrom(values, 4));
 
     }
 
@@ -43,22 +45,18 @@ public class Main {
     public static int indexOfTheSmallestStartingFrom(int[] array, int index) {
         // write the code here
 
-        
-        int smallestIndex = 0;
+        int smallestIndex = index;
 
-        int smallest = array[0];
+        int smallest = array[index];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = index; i < array.length; i++) {
             if (array[i] < smallest) {
                 smallest = array[i];
                 smallestIndex = i;
             }
         }
         return smallestIndex;
-        
+
     }
 
 }
-
-
-
