@@ -24,6 +24,5 @@ public class Main {
         } else {
             System.out.println("Value " + searchedValue + " is not in the array");
         }
-        
     }
 }
