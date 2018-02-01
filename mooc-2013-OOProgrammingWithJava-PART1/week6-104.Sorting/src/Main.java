@@ -65,7 +65,8 @@ public class Main {
         array[index1] = temp2;
         array[index2] = temp1;
 
-    }
+        
+   }
 
     public static void sort(int[] array) {
 
