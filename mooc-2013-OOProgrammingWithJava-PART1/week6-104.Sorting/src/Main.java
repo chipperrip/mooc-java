@@ -1,14 +1,12 @@
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         // write testcode here
-
-        // indexes:    0  1  2  3   4
-        int[] values = {-1, 6, 9, 8, 12};
-        System.out.println(indexOfTheSmallestStartingFrom(values, 1));
-        System.out.println(indexOfTheSmallestStartingFrom(values, 2));
-        System.out.println(indexOfTheSmallestStartingFrom(values, 4));
+        int[] values = {8, 3, 7, 9, 1, 2, 4};
+        sort(values);
 
     }
 
@@ -56,6 +54,25 @@ public class Main {
             }
         }
         return smallestIndex;
+
+    }
+
+    public static void swap(int[] array, int index1, int index2) {
+
+        int temp1 = array[index1];
+        int temp2 = array[index2];
+
+        array[index1] = temp2;
+        array[index2] = temp1;
+
+    }
+
+    public static void sort(int[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(Arrays.toString(array));
+            swap(array, i, indexOfTheSmallestStartingFrom(array, i));
+        }
 
     }
 
