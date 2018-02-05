@@ -10,7 +10,21 @@
  */
 public class Airplane {
 
-    private String name;
+    private String id;
     private int capacity;
 
+    public Airplane(String id, int capacity) {
+        this.id = id;
+        this.capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+
+        // HA-LOL (42 ppl)
+        // G-OWAC (101 ppl)
+        return id + " (" + capacity + " ppl)";
+    }
+
+  
 }
