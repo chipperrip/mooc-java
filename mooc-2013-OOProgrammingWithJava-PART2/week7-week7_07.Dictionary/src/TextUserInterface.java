@@ -68,7 +68,7 @@ public class TextUserInterface {
             } else if (input.equals("add")) {
                 add(reader);
 
-            } else if (input.equals("translation")) {
+            } else if (input.equals("translate")) {
                 translate(reader);
 
             } else {
