@@ -31,7 +31,7 @@ public class Main {
                 + "G-OWAC\n"
                 + "x\n";
 
-        Scanner reader = new Scanner(System.in);
+        Scanner reader = new Scanner(input);
 
         Airport airport = new Airport(reader);
 

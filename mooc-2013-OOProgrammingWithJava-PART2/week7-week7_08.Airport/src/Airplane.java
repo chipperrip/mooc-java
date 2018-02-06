@@ -26,5 +26,38 @@ public class Airplane {
         return id + " (" + capacity + " ppl)";
     }
 
-  
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (getClass() != object.getClass()) {
+            return false;
+        }
+
+        Airplane plane = (Airplane) object;
+
+        if (this.capacity != plane.capacity) {
+            return false;
+        }
+
+        if (!this.id.equals(plane.id) || this.id == null) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+
+        if (this.id == null) {
+            return 7;
+        }
+
+        return this.capacity + this.id.hashCode();
+
+    }
+
 }
