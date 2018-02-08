@@ -2,6 +2,7 @@
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,8 +15,8 @@ import java.util.Map;
  */
 public class Storehouse {
 
-    Map<String, Integer> products;  // producs name, price
-    Map<String, Integer> stores;     // product name, stock
+    private Map<String, Integer> products;  // producs name, price
+    private Map<String, Integer> stores;     // product name, stock
 
     public Storehouse() {
 
@@ -44,6 +45,30 @@ public class Storehouse {
             return stores.get(product);
         }
 
-        return -99;
+        return 0;
     }
+
+    public boolean take(String product) {
+        if (stores.containsKey(product) && this.stock(product) > 0) {
+            stores.put(product, stores.get(product) - 1);
+            return true;
+        }
+
+        return false;
+    }
+
+    public Set<String> products() {
+        return products.keySet();
+    }
+
+//    public String toString() {
+//
+//        String string = "";
+//        
+//        for(String item:products.keySet()){
+//            string += item + ": ";
+//        }
+//
+//    }
+
 }
