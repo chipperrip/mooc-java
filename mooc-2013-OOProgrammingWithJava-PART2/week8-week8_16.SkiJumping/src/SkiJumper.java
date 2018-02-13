@@ -13,26 +13,22 @@ import java.util.ArrayList;
 public class SkiJumper implements Comparable<SkiJumper> {
 
     private String name;
-    private ArrayList<Integer> points;
+    private ArrayList<Integer> jumpLengths;
+    private int points;
 
     public SkiJumper(String name) {
         //assume legal name
         this.name = name;
-        points = new ArrayList<Integer>();
+        jumpLengths = new ArrayList<Integer>();
+        points = 0;
     }
 
     public int getPoints() {
-        int sum = 0;
+        return points;
+    }
 
-        if (points.size() == 0) {
-            return sum;
-        }
-
-        for (int judge : points) {
-            sum += judge;
-
-        }
-        return sum;
+    public void scorePoints(int points) {
+        this.points += points;
     }
 
     public String getName() {
@@ -51,5 +47,23 @@ public class SkiJumper implements Comparable<SkiJumper> {
         }
 
         return this.getPoints() - other.getPoints();
+    }
+
+    public void addJump(int length) {
+        jumpLengths.add(length);
+    }
+
+    public String getJumpString() {
+        String string = "jump lengths: ";
+
+        for (int i = 0; i < jumpLengths.size(); i++) {
+            if (i == jumpLengths.size() - 1) {
+                string += jumpLengths.get(i) + " m";
+            } else {
+                string += jumpLengths.get(i) + " m, ";
+            }
+        }
+
+        return string;
     }
 }

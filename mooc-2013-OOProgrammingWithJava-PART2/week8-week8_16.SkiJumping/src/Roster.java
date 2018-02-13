@@ -12,6 +12,7 @@ import java.util.Collections;
  * @author Chipper
  */
 public class Roster {
+    //holds a roster of skijumpers, allows access to the roster through getRoster
 
     private ArrayList<SkiJumper> roster;
 
@@ -27,6 +28,10 @@ public class Roster {
     public void sort() {
         Collections.sort(roster);
 
+    }
+    
+    public void reverse(){
+        Collections.reverse(roster);
     }
 
 //    public SkiJumper getJumper(String name) {
