@@ -42,12 +42,12 @@
 init:
 
 -deps-jar-init:
-   [delete] Deleting: C:\NetBeansProjects\mooc-java\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_20.SensorsAndTemperatureMeasurement\build\built-jar.properties
+   [delete] Deleting: C:\NetBeansProjects\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_20.SensorsAndTemperatureMeasurement\build\built-jar.properties
 
 deps-jar:
 
 -warn-already-built-jar:
-[propertyfile] Updating property file: C:\NetBeansProjects\mooc-java\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_20.SensorsAndTemperatureMeasurement\build\built-jar.properties
+[propertyfile] Updating property file: C:\NetBeansProjects\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_20.SensorsAndTemperatureMeasurement\build\built-jar.properties
 
 -check-automatic-build:
 

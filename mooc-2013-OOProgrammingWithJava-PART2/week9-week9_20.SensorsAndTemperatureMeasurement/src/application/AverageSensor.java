@@ -15,7 +15,8 @@ public class AverageSensor implements Sensor {
 
     private ArrayList<Sensor> sensors = new ArrayList<Sensor>(0);
 
-    private boolean isOn = false;
+    private List<Integer> measurements = new ArrayList<Integer>();
+
 
     public AverageSensor() {
     }
@@ -40,7 +41,6 @@ public class AverageSensor implements Sensor {
         for (Sensor sensor : sensors) {
             sensor.on();
         }
-        isOn = isOn();
     }
 
     @Override
@@ -48,8 +48,6 @@ public class AverageSensor implements Sensor {
         for (Sensor sensor : sensors) {
             sensor.off();
         }
-
-        isOn = isOn();
     }
 
     @Override
@@ -62,11 +60,14 @@ public class AverageSensor implements Sensor {
             count++;
             sum += sensor.measure();
         }
+        int average = sum / count;
+        measurements.add(average);
+
         return sum / count;
     }
 
-    public String readings() {
-        
+    public List<Integer> readings() {
+        return measurements;
     }
 
 }
