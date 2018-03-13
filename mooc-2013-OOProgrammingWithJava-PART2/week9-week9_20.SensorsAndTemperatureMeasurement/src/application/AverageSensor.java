@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class AverageSensor implements Sensor {
 
-    private ArrayList<Sensor> sensors = new ArrayList<Sensor>(0);
+    private List<Sensor> sensors = new ArrayList<Sensor>();
 
     private List<Integer> measurements = new ArrayList<Integer>();
 
@@ -28,6 +28,10 @@ public class AverageSensor implements Sensor {
     @Override
     public boolean isOn() {
 
+        if(sensors.isEmpty()){
+            return false;
+        }
+        
         for (Sensor sensor : sensors) {
             if (!sensor.isOn()) {
                 return false;
