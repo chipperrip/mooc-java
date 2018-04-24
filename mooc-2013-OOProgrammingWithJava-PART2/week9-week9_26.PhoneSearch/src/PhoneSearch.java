@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class PhoneSearch {
 
     private Scanner reader;
-    private PhoneDB phoneDB;
+    private PhoneDB phoneDB = new PhoneDB();
 
     public PhoneSearch(Scanner scan) {
         reader = scan;
@@ -125,18 +125,10 @@ public class PhoneSearch {
         System.out.print("whose information: ");
         String name = reader.nextLine();
 
-        System.out.print(" ");
-        System.out.println(phoneDB.getAddress(name));
-
-        System.out.print(" ");
-        if (phoneDB.findNumbers(name).isEmpty()) {
-            System.out.println("phone number not found");
+        if (phoneDB.contains(name)) {
+            phoneDB.getInfo(name);
         } else {
-            System.out.println("phone numbers: ");
-
-            for (String number : phoneDB.findNumbers(name)) {
-                System.out.println(" " + number);
-            }
+            System.out.println(" not found");
         }
 
     }
@@ -149,9 +141,10 @@ public class PhoneSearch {
     }
 
     private void filteredListing() {
-        System.out.print("whose information: ");
+        System.out.print("keyword (if empty, all listed): ");
         String name = reader.nextLine();
 
+        phoneDB.filteredInfo(name);
     }
 
 }

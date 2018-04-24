@@ -13,21 +13,22 @@ import java.util.List;
  */
 public class Person {
 
-    private String name;
-    private String city;
-    private String street;
+    private String name = "";
+    private String city = "";
+    private String street = "";
     private ArrayList<String> numbers = new ArrayList<String>();
 
     public Person(String name, String number) {
         this.name = name;
-        this.numbers.add(name);
+        this.numbers.add(number);
     }
 
-//    public Person(String name, String number, String city, String street) {
-//        this.name = name;
-//        this.city = city;
-//        this.street = street;
-//    }
+    public Person(String name, String city, String street) {
+        this.name = name;
+        this.city = city;
+        this.street = street;
+    }
+
     public void addNumber(String number) {
         this.numbers.add(number);
     }
@@ -50,6 +51,10 @@ public class Person {
         }
 
         return street + " " + city;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 }

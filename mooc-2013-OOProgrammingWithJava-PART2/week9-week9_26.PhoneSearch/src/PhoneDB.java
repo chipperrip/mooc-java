@@ -1,7 +1,11 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -48,9 +52,14 @@ class PhoneDB {
     }
 
     public void addAddress(String name, String street, String city) {
-        Person person = database.get(name);
-        person.addStreet(street);
-        person.addCity(city);
+
+        if (database.containsKey(name)) {
+            Person person = database.get(name);
+            person.addStreet(street);
+            person.addCity(city);
+        } else {
+            database.put(name, new Person(name, city, street));
+        }
     }
 
     public String getAddress(String name) {
@@ -67,20 +76,30 @@ class PhoneDB {
     }
 
     public void filteredInfo(String filter) {
-        String info = "";
-        for (String string : database.keySet()) {
+        boolean foundInfo = false;
+
+        List<String> sorted = new ArrayList<String>(database.keySet());
+
+        Collections.sort(sorted);
+
+        for (String string : sorted) {
             Person person = database.get(string);
             if (person.getAddress().contains(filter) || string.contains(filter)) {
                 System.out.println("");
+                System.out.println(person.getName());
                 getInfo(string);
+                foundInfo = true;
             }
         }
-        if (info.isEmpty()) {
-            return "keyword not found";
+        if (!foundInfo) {
+            System.out.println("keyword not found");;
         }
     }
 
     public void getInfo(String name) {
+        System.out.print(" ");
+        System.out.println(getAddress(name));
+
         System.out.print(" ");
         if (findNumbers(name).isEmpty()) {
             System.out.println("phone number not found");
